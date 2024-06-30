@@ -57,25 +57,60 @@ Esta API simula o funcionamento de um caixa eletrônico. Ela recebe um valor de 
   }
   ```
 
-## Considerações Finais
+## Principais Desafios
 
-Este projeto foi desenvolvido para simular um caixa eletrônico simples. A lógica foi otimizada para garantir a menor quantidade de cédulas possíveis para qualquer valor de saque permitido. Quaisquer dúvidas ou problemas, por favor, abra uma issue no repositório.
+1. Validação de Entradas: Garantir que o valor de saque seja um número inteiro positivo foi um dos principais desafios. Adicionar validações para tratar valores inválidos, incluindo valores com centavos e valores negativos, foi essencial para a robustez da API.
+2. Cálculo das Cédulas: Implementar a lógica para calcular a quantidade de cada cédula necessária para um valor de saque específico, assegurando que a distribuição fosse correta e eficiente.
+3. Formatar Respostas: Formatar a resposta para ser amigável ao usuário, garantindo que as informações fossem claras e fáceis de entender, foi um desafio adicional. Usar JSON.stringify para formatar a resposta em múltiplas linhas foi uma solução para melhorar a legibilidade.
 
-## Instruções para Envio
 
-- Subir o código para um repositório no GitHub;
-- Incluir um README.md no repositório contendo a documentação, quais foram os principais desafios, e uma instrução de como excutar o projeto;
-- Enviar o link do repositório até o prazo determinado.
+## Como usar esta API
 
-## Perguntas Frequentes
-### Qual linguagem?
-Não temos preferência por linguagem. Porém, aqui utilizamos: Typescript e Python
+1. **Clone o repositório**: A primeira seção explica como clonar o repositório e entrar no diretório do projeto.
+2. **Instalação**: Instruções para instalar as dependências usando `npm install` e a biblioteca Fastify usando `npm install fastify`.
+3. **Execução**: Instruções para iniciar o servidor, usando `node server.js`.
+4. **Endpoints**: Detalha o endpoint principal da API, incluindo exemplos de requisição e resposta.
 
-### Devo construir uma interface?
-Não é necessário desenvolver uma interface gráfica para este projeto. O foco principal da avaliação será a lógica aplicada e a robustez do código. Estamos interessados em verificar se o código está bem organizado, legível e se ele atende aos critérios estabelecidos pelos testes.
+## Instalação
 
-### Quando vou receber meu feedback?
-Você receberá o feedback em até 15 dias após o encerramento das inscrições.
+1. Clone o repositório:
+    ```sh
+    git clone https://github.com/Thiago-Vieira1/desafio-atm.git
+    cd desafio-atm
+    ```
 
-### Posso realizar alguma alteração depois do prazo de encerramento?
-Não é possível realizar alterações após o prazo estabelecido. Mesmo que modificações sejam feitas após este prazo, nossa equipe avaliará apenas o último commit válido realizado antes do encerramento das inscrições.
+2. Inicialize um novo projeto Node.js:
+    ```sh
+    npm init -y
+    ```
+
+3. Instale a biblioteca Fastify:
+    ```sh
+    npm install fastify
+    ```
+
+## Execução
+
+Para iniciar o servidor, utilize o comando:
+```sh
+node server.js
+```
+
+Para testar a API, você pode usar o seguinte comando curl:
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"valor": 380}' http://localhost:5000/api/saque
+```
+
+Ou, se estiver usando PowerShell, utilize o comando abaixo:
+
+```powershell
+$body = @{
+    valor = 100.50
+} | ConvertTo-Json
+
+Invoke-WebRequest -Uri "http://localhost:5000/api/saque" `
+                  -Method POST `
+                  -ContentType "application/json" `
+                  -Body $body
+```
