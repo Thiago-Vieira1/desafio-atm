@@ -63,14 +63,6 @@ Esta API simula o funcionamento de um caixa eletrônico. Ela recebe um valor de 
 2. Cálculo das Cédulas: Implementar a lógica para calcular a quantidade de cada cédula necessária para um valor de saque específico, assegurando que a distribuição fosse correta e eficiente.
 3. Formatar Respostas: Formatar a resposta para ser amigável ao usuário, garantindo que as informações fossem claras e fáceis de entender, foi um desafio adicional. Usar JSON.stringify para formatar a resposta em múltiplas linhas foi uma solução para melhorar a legibilidade.
 
-
-## Como usar esta API
-
-1. **Clone o repositório**: A primeira seção explica como clonar o repositório e entrar no diretório do projeto.
-2. **Instalação**: Instruções para instalar as dependências usando `npm install` e a biblioteca Fastify usando `npm install fastify`.
-3. **Execução**: Instruções para iniciar o servidor, usando `node server.js`.
-4. **Endpoints**: Detalha o endpoint principal da API, incluindo exemplos de requisição e resposta.
-
 ## Instalação
 
 1. Clone o repositório:
